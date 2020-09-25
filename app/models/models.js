@@ -1,6 +1,3 @@
-// const {DataTypes} = require('sequelize')
-
-
 const result = (sequelize, Sequelize) => {
 
 
@@ -10,7 +7,6 @@ const result = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,
-      // unique : true,
       allowNull: false,
     },
 
@@ -44,7 +40,6 @@ const result = (sequelize, Sequelize) => {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,
-      // unique : true,
       allowNull: false,
     },
 
@@ -74,18 +69,6 @@ const result = (sequelize, Sequelize) => {
       unique : true,
       allowNull: false,
     },
-
-    // userId: {
-    //   type: Sequelize.INTEGER,
-    //   allowNull: false,
-    // },
-
-    // userId: {
-    //   type: Sequelize.INTEGER,
-    //   allowNull: false,
-    //   foreignKey : true,
-    // },
-
 
     dateStart: {
       type: Sequelize.DATE,
@@ -128,8 +111,8 @@ const result = (sequelize, Sequelize) => {
   Works.hasMany(Work_user);
   Work_user.belongsTo(Users);
   Work_user.belongsTo(Works);
-  Users.belongsToMany(Works,{through: 'Work_user', foreignKey: 'userId'})
-  Works.belongsToMany(Users,{through: 'Work_user', foreignKey: 'workId'})
+  Users.belongsToMany(Works,{through: 'Work_users', foreignKey: 'userId'})
+  Works.belongsToMany(Users,{through: 'Work_users', foreignKey: 'workId'})
 
   const db1 ={};
 
